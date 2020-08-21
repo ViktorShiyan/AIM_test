@@ -30,7 +30,7 @@ public class FileCreator extends Thread {
     /**
      * Метод осуществляющий парсинг и запись
      */
-    synchronized private void toParse() {
+    private void toParse() {
         try {
             synchronized (File.class) {
                 FileReader fr = new FileReader(file);
@@ -59,8 +59,11 @@ public class FileCreator extends Thread {
                 writer.write(text);
                 writer.close();
             }
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Файл не найден");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Ошибка ввода вывода");
         }
     }
 

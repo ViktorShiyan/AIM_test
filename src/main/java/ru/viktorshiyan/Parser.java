@@ -19,7 +19,7 @@ public class Parser extends Thread {
         this.file = file;
     }
 
-    synchronized public void toParse() {
+    public void toParse() {
         try {
             synchronized (File.class) {
                 FileReader fr = new FileReader(file);
@@ -32,8 +32,10 @@ public class Parser extends Thread {
                     new FileCreator(file, i, new File(arrName[i])).start();
                 }
             }
+        } catch (FileNotFoundException e) {
+            System.out.println("Файл не найден");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Ошибка ввода вывода");
         }
     }
 
