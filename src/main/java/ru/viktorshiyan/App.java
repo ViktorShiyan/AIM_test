@@ -4,7 +4,9 @@ import java.io.File;
 import java.util.Arrays;
 
 /**
- * Hello world!
+ * Вход в программу
+ *
+ *@author viktorshiyan
  */
 public class App {
     public static void main(String[] args) {
